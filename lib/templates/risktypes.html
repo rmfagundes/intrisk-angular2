@@ -1,0 +1,7 @@
+<h2>Risk Types</h2>
+<h3>Language:</h3>
+<ul>
+  <li *ngFor="let rtype of risktypes" (click)="onSelect(rtype)">
+    <span class="badge">{{rtype.language}}</span> {{rtype.name}}
+  </li>
+</ul>
