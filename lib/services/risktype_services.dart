@@ -8,19 +8,30 @@ import '../models/risktype.dart';
 
 @Injectable()
 class RiskTypeService {
-
-  static const _riskTypesUrl = 'http://192.168.99.100:3002/risktypes';
+  static const _riskAPIBaseUrl = 'http://192.168.99.100:3002/';
+  static const _riskTypesUrl = 'risktypes';
+  static const _riskTypeUrl = 'risktypes';
   final Client _http;
 
   RiskTypeService(this._http);
 
   Future<List<RiskType>> findAll() async {
     try {
-      final response = await _http.get(_riskTypesUrl);
+      final response = await _http.get(_riskAPIBaseUrl + _riskTypesUrl);
       final risktypes = _extractData(response)
           .map((value) => new RiskType.fromJson(value))
           .toList();
       return risktypes;
+    } catch (e) {
+      throw _handleError(e);
+    }
+  }
+
+  Future<RiskType> findById(id) async {
+    try {
+      final response = await _http.get(_riskAPIBaseUrl + _riskTypeUrl + "/" + id);
+      final jsonResponse = JSON.decode(response.body);
+      return new RiskType(jsonResponse['id'], jsonResponse['name'], jsonResponse['language']);
     } catch (e) {
       throw _handleError(e);
     }
