@@ -2,6 +2,9 @@ import 'dart:async';
 import 'package:angular2/core.dart';
 import 'package:http/browser_client.dart';
 
+import 'package:intl/intl.dart';
+import 'package:intl/intl_browser.dart';
+
 import 'models/risktype.dart';
 
 import 'services/risktype_services.dart';
@@ -13,6 +16,7 @@ import 'services/risktype_services.dart';
 )
 class RiskTypesComponent implements OnInit {
   List<RiskType> risktypes;
+  String currLang;
 
   final RiskTypeService _rtypeService;
 
@@ -23,6 +27,9 @@ class RiskTypesComponent implements OnInit {
   }
 
   void ngOnInit() {
+    findSystemLocale().then((final String locale) {
+      currLang = Intl.shortLocale(locale);
+    });
     findAll();
   }
 }
