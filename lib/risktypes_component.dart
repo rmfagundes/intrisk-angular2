@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:angular2/core.dart';
+import 'package:http/browser_client.dart';
 
 import 'models/risktype.dart';
 
@@ -8,7 +9,7 @@ import 'services/risktype_services.dart';
 @Component(
   selector: 'risktypes',
   templateUrl: './templates/risktypes.html',
-  providers: const[RiskTypeService]
+  providers: const[RiskTypeService, BrowserClient]
 )
 class RiskTypesComponent implements OnInit {
   List<RiskType> risktypes;
