@@ -5,6 +5,7 @@ import 'models/menuitem.dart';
 @Component(
   selector: 'navbar',
   templateUrl: './templates/navbar.html',
+  styleUrls: const ['./templates/css/navbar.css'],
   directives: const [ROUTER_DIRECTIVES]
 )
 class NavBarComponent {

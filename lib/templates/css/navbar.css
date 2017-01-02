@@ -1,0 +1,12 @@
+.leftbar {
+  position: relative;
+  top: 3.5em;
+  left: 0;
+  padding: 0 0.9em 0.9em 0.9em;
+}
+
+@media (min-width: 720px) {
+  .leftbar {
+    float: left;
+  }
+}
