@@ -12,18 +12,14 @@
       <td>{{rtype.name}} <span class="tag {{rtype.language == currLang ? 'tag-success' : 'tag-default'}}">{{rtype.language}}</span></td>
       <td>
         <!--<div class="btn-group">-->
-          <button class="btn btn-sm btn-primary" aria-label="Ver Detalhes"
+          <button class="btn btn-sm btn-primary" aria-label="Ver/Editar Detalhes"
                   (click)="gotoDetail(rtype)">
             <!--<span class="fa fa-eye" aria-hidden="true"></span>-->
-            Detalhes
-          </button>
-          <button class="btn btn-sm btn-primary" aria-label="Editar">
-            <!--<span class="fa fa-pencil" aria-hidden="true"></span>-->
-            Editar
+            Details
           </button>
           <button class="btn btn-sm btn-danger" aria-label="Remover">
             <!--<span class="fa fa-trash" aria-hidden="true"></span>-->
-            Remover
+            Remove
           </button>
         <!--</div>-->
       </td>

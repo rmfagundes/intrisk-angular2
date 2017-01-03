@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
 
@@ -32,6 +33,24 @@ class RiskTypeService {
       final response = await _http.get(_riskAPIBaseUrl + _riskTypeUrl + "/" + id);
       final jsonResponse = JSON.decode(response.body);
       return new RiskType(jsonResponse['id'], jsonResponse['name'], jsonResponse['language']);
+    } catch (e) {
+      throw _handleError(e);
+    }
+  }
+
+  Future<RiskType> save(rtype) async {
+    try {
+      String rtypeJson = '{"risk_type": ' + JSON.encode(rtype) + '}';
+      if (rtype.id == null) {
+        final response = await _http.post(_riskAPIBaseUrl + _riskTypeUrl,
+                                          headers: {HttpHeaders.CONTENT_TYPE: "application/json"},
+                                          body: rtypeJson);
+      } else {
+        final response = await _http.put(_riskAPIBaseUrl + _riskTypeUrl + "/" + rtype.id,
+                                         headers: {HttpHeaders.CONTENT_TYPE: "application/json"},
+                                         body: rtypeJson);
+      }
+      return rtype;
     } catch (e) {
       throw _handleError(e);
     }

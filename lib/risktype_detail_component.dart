@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:intl/intl_browser.dart';
 
 import 'models/risktype.dart';
+import 'models/toast.dart';
 
 import 'services/risktype_services.dart';
 import 'services/language_services.dart';
@@ -17,7 +18,7 @@ import 'services/language_services.dart';
   templateUrl: './templates/risktype.html',
   providers: const[RiskTypeService, LanguageService, BrowserClient]
 )
-class RiskTypeViewComponent implements OnInit {
+class RiskTypeDetailComponent implements OnInit {
   RiskType risktype;
   Language languages;
   String currLang;
@@ -27,11 +28,23 @@ class RiskTypeViewComponent implements OnInit {
   final RouteParams _routeParams;
   final RiskTypeService _rtypeService;
   final LanguageService _langService;
+  final ToastService _toastService;
 
-  RiskTypeViewComponent(this._routeParams, this._rtypeService, this._langService);
+  @Output() EventEmitter addToastEvent = new EventEmitter<Toast>();
+
+  final Boolean editable = true;
+
+  RiskTypeDetailComponent(this._routeParams, this._rtypeService, this._langService);
 
   Future<Null> findById() async {
     risktype = await _rtypeService.findById(_id);
+  }
+
+  Future<Null> save(rtype) async {
+    var response = await _rtypeService.save(rtype);
+    if (response != null) {
+      addToastEvent.emit(new Toast("success", "Risk Type saved successfuly!"));
+    }
   }
 
   Future<Null> findLanguageOptions() async {

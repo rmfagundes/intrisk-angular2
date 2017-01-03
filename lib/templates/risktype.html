@@ -1,14 +1,17 @@
 <h2>Risk Type</h2>
-<form>
-  <!--
-  <div class="form-group row">
-    <label for="rtype-name-input" class="col-xs-2 col-form-label">Name</label>
-    <input class="form-control" type="text" value="{{risktype.name}}" id="rtype-name-input"/>
-  </div><!--
-  <div class="form-group row">
-    <label for="rtype-language-select" class="col-xs-2 col-form-label">Language</label>
-    <select class="form-control" id="rtype-language-select">
-      <option *ngFor="let language of languages" value="{{language.abbrev}}">{{language.name}}</option>
-    </select>
-  </div>-->
+<form *ngIf="risktype != null" class="form-inline">
+  <label for="rtype-name">Name: </label>
+  <input class="form-control" id="rtype-name" type="text"
+         [(ngModel)]="risktype.name" placeholder="Name of the risk type">
+
+  <label for="rtype-language-select">Language: </label>
+  <select class="form-control" id="rtype-language-select"
+          [(ngModel)]="risktype.language">
+    <option *ngFor="let language of languages" value="{{language.abbrev}}">{{language.name}}</option>
+  </select>
+
+  <button class="btn btn-sm btn-success" aria-label="Save"
+          *ngIf="editable" (click)="save(risktype)">
+    Save
+  </button>
 </form>
