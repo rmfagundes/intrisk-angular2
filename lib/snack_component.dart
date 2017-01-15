@@ -38,5 +38,6 @@ class SnackComponent implements OnInit, DoCheck{
 
   void dismissSnackbar() {
     snack = null;
+    _snackService.remove();
   }
 }

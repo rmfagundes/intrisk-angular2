@@ -2,12 +2,30 @@
   position: fixed;
   z-index: 100;
   width:100%;
-  bottom: -3em;
+  bottom: -3.5em;
   left:0;
   text-align: center;
 
-  transition: transform 1s;
-  transform: translateY(-3em);
+  -webkit-animation-name: rollup; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: rollup;
+  animation-duration: 4s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes rollup {
+  0% {bottom: -3.5em;}
+  25% {bottom: 0;}
+  75% {bottom: 0;}
+  100% {bottom: -3.5em;}
+}
+
+/* Standard syntax */
+@keyframes rollup {
+  0% {bottom: -3.5em;}
+  25% {bottom: 0;}
+  75% {bottom: 0;}
+  100% {bottom: -3.5em;}
 }
 
 .snackbar-content {

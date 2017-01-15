@@ -30,7 +30,7 @@ class TopBarComponent {
 
   void login() {
     // TEST SNACK BAR
-    this._snackService.add(new Snack("info", "Logou!"));
+    _snackService.add(new Snack("info", "Logou!"));
     // Open modal component for login
   }
 
