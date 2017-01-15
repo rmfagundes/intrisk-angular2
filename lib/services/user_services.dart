@@ -2,23 +2,24 @@ import 'dart:async';
 
 import 'package:angular2/core.dart';
 
-import '../models/language.dart';
+import '../models/user.dart';
 
 @Injectable()
-class LanguageService {
-  final List<Language> allLanguages = [
-    new Language('pt', 'Português'),
-    new Language('en', 'English')
-  ];
+class UserService {
+  User user;
 
-  LanguageService();
+  UserService();
 
-  Future<List<Language>> findAll() async {
+  Future<User> find() async {
     try {
-      return allLanguages;
+      return user;
     } catch (e) {
       throw _handleError(e);
     }
+  }
+
+  void login() {
+    // Call to API
   }
 
   Exception _handleError(dynamic e) {

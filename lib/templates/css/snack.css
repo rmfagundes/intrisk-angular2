@@ -1,0 +1,40 @@
+.snackbar {
+  position: fixed;
+  z-index: 100;
+  width:100%;
+  bottom: -3em;
+  left:0;
+  text-align: center;
+
+  transition: transform 1s;
+  transform: translateY(-3em);
+}
+
+.snackbar-content {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  padding: 16px;
+  display: -webkit-inline-box;
+}
+
+.snackbar-dismiss-success {
+  padding-left: 16px;
+  color: #5cb85c;
+}
+
+.snackbar-dismiss-error {
+  padding-left: 16px;
+  color: #d9534f;
+}
+
+.snackbar-dismiss-info {
+  padding-left: 16px;
+  color: #428bca;
+}
+
+.snackbar-dismiss-alert {
+  padding-left: 16px;
+  color: #ffeb3b;
+}

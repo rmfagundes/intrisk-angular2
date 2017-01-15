@@ -11,6 +11,14 @@
       </a>
     </a>
   </div>
+  <div class="ident">
+    <a *ngIf="user == null" (click)="login()">
+      Login
+    </a>
+    <a *ngIf="user != null">
+      Rodrigo Fagundes
+    </a>
+  </div>
 </nav>
 
 <!--<div class="navbar navbar-full navbar-dark bg-inverse navbar-fixed-top">

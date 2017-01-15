@@ -1,0 +1,9 @@
+<div *ngIf="snack != null" class="snackbar">
+  <div class="snackbar-content">
+    {{snack.message}}
+    <div class="snackbar-dismiss-{{snack.type}}" aria-label="Close"
+            (click)="dismissSnackbar()">
+      DISMISS
+    </div>
+  </div>
+</div>

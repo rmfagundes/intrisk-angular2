@@ -1,7 +1,7 @@
 class MenuItem {
   String icon;
   String link;
-  Boolean external;
+  bool external;
   String title;
   List<MenuItem> sublinks;
 

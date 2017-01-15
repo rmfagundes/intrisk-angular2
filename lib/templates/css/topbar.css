@@ -1,0 +1,9 @@
+.ident {
+  float: right;
+  color: white;
+
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+}
